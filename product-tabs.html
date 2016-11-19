@@ -1,0 +1,23 @@
+  <div  class="row">
+                        <div  class="col s12">
+                            <ul class="tabs">
+                                <li ng-class={active:panel.isSet(1)} class="tab col s4"><a ng-click="panel.setTab(1)">Description</a></li>
+                                <li  ng-class={active:panel.isSet(2)} class="tab col s4"><a ng-click="panel.setTab(2)">Colors</a></li>
+                                <li ng-class={active:panel.isSet(3)} class="tab col s4"><a ng-click="panel.setTab(3)">REVIEWS</a></li>
+
+                            </ul>
+                        </div>
+                        <br>
+                        <div ng-show="panel.isSet(1)" class="tab-content col s12"><product-description></product-description></div>
+                        <div ng-show="panel.isSet(2)" class="tab-content col s12"><product-shine></product-shine></div>
+                        <div ng-show="panel.isSet(3)" class="tab-content col s12">
+                        <product-review></product-review></div>
+
+                    </div> 
+
+<script>
+    $(document).ready(function(){
+        $('ul.tabs').tabs();
+         $('select').material_select();
+    });
+</script>

@@ -1,0 +1,73 @@
+<!doctype html>
+<html ng-app='gemStore'>
+    <!-- Connecting Angular to HTML -->
+    <head>
+         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+        <script src="app.js" type="text/javascript"></script>
+        <script src="products.js" type="text/javascript"></script>
+       
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css"/>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+    </head>
+
+
+    <body>
+        <!--Let's try some expressions-->
+        <h2 style="margin-top:1em" class="container">{{ "Hello, Gemstore!" }}</h2>
+        <!-- Try Hello Hemang without quotes and see the earth shaking -->
+        <div class="container" ng-controller="StoreController as store">
+            <div class="card"  ng-hide="product.soldOut" ng-repeat="product in store.products">
+                <div class="card-content">
+                    <h5 class="product-name">{{product.name}} </h5>
+                    <h4 class="right">   {{product.price | currency}}</h4>
+                        
+
+                 <product-image></product-image>
+
+                  <product-tabs></product-tabs>
+
+                </div>
+                <div ng-show="product.canPurchase" class="card-action">
+                    <a href="#" class="btn waves-effect">BUY</a>
+                </div>      
+            </div>
+
+        </div>
+
+    </body>
+
+</html>
+
+<script>
+    $(document).ready(function(){
+        $('ul.tabs').tabs();
+         $('select').material_select();
+    });
+</script>
+
+<style>
+    .tab-content{
+        padding-top: 1em !important;
+    }
+    
+    .ng-invalid.ng-dirty{
+        border-color: red
+    }
+    .ng-valid.ng-dirty{
+        border-color:green
+    }
+    select {
+    display: block !important;
+}
+</style>
+
+<!-- Directives Learnt -->
+<!-- 
+ng-app, ng-controller, ng-show, ng-hide, ng-repeat, ng-src, ng-click, ng-class, ng-include.
+
+
+We used {{}} and ""
+
+
+-->

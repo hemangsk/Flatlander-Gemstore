@@ -1,0 +1,32 @@
+   <div  ng-repeat="review in product.reviews">
+                                <div class="review-box">
+
+                                    <div class="stars"><strong>Stars </strong>{{review.stars}}</div>
+                                    <div class="body">{{review.body}}</div>
+                                    <div class="author"><strong>Author</strong> {{review.author}}</div>
+                                    <div class="created-on">{{review.createdOn }}</div>    
+                                </div>
+
+                                <br>
+                            </div>
+
+                            <form name="reviewForm" ng-controller="ReviewController as rvwCtrl" ng-submit="reviewForm.$valid && rvwCtrl.addReview(product)" novalidate>
+                                <div class="review-box">
+
+                                    <div class="stars"><strong>Stars </strong>{{rvwCtrl.review.stars}}
+                                    </div>
+                                    <div class="body"><strong>Review </strong>{{rvwCtrl.review.body}}</div>
+                                    <div class="author"><strong>Author </strong> {{rvwCtrl.review.author}}</div>
+                                   
+                                </div>
+
+
+
+                                <select ng-model="rvwCtrl.review.stars" ng-options="stars for stars in [5,4,3,2,1]" required>
+                                </select>
+                                <textarea ng-model="rvwCtrl.review.body"  title="Review"></textarea>
+                                <input ng-model="rvwCtrl.review.author" type="email"   title="Email" required />
+                                <input type="submit" class="btn btn-primary pull-right"  value="Submit Review" />
+
+
+                            </form>    
